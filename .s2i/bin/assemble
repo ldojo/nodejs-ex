@@ -1,0 +1,14 @@
+#!/bin/bash
+echo "running custom s2i assemble script, prior to builder assemble script"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful assembling from builder, installing aws sdk"
+    npm install aws-sdk
+else
+    echo "builder s2i assemble sript failed"
+fi
+
+exit $rc
