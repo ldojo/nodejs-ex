@@ -53,6 +53,11 @@ var db = null,
     dbDetails = new Object(),
     s3Details = new Object();
 
+    // Load the SDK for JavaScript
+var AWS = require('aws-sdk');
+    // Set the Region
+AWS.config.update({region: process.env.S3_REGION});
+
 var initDb = function(callback) {
   if (mongoURL == null) return;
 
