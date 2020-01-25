@@ -63,10 +63,10 @@ var uploadParams = {Bucket: process.env.BUCKET_NAME, Key: 'citi', Body: 'citi'};
 s3.upload (uploadParams, function (err, data) {
   if (err) {
     console.log("Error", err);
-    dbDetails.message = "s3: " + err;
+    s3Details.message = "s3: " + err;
   } if (data) {
     console.log("Upload Success", data.Location);
-    dbDetails.message = "s3: " + data;
+    s3Details.message = "s3: " + data;
   }
 });
 
