@@ -56,7 +56,17 @@ var db = null,
     // Load the SDK for JavaScript
 var AWS = require('aws-sdk');
     // Set the Region
-AWS.config.update({region: process.env.S3_REGION});
+AWS.config.update({region: process.env.S3_REGION  });
+s3 = new AWS.S3({apiVersion: '2006-03-01'});
+var uploadParams = {Bucket: process.env.BUCKET_NAME, Key: 'citi', Body: 'citi'};
+// call S3 to upload bucket contents
+s3.upload (uploadParams, function (err, data) {
+  if (err) {
+    console.log("Error", err);
+  } if (data) {
+    console.log("Upload Success", data.Location);
+  }
+});
 
 var initDb = function(callback) {
   if (mongoURL == null) return;
