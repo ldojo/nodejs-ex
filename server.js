@@ -66,7 +66,7 @@ s3.upload (uploadParams, function (err, data) {
     s3Details.message = "s3: " + err;
   } if (data) {
     console.log("Upload Success", data.Location);
-    s3Details.message = "s3: " + data;
+    s3Details.message = "s3: " + JSON.stringify(data, null, 2) ;
   }
 });
 
