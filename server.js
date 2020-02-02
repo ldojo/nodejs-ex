@@ -51,10 +51,27 @@ if (mongoURL == null) {
 }
 var db = null,
     dbDetails = new Object(),
-    s3Details = new Object();
+    s3Details = new Object(),
+    couchbaseDetails = new Object();
 
+//var couchbase = require("couchbase");
+//var cluster = new couchbase.Cluster(process.env.COUCHBASE_SERVER);
+//var bucket = cluster.openBucket('beer-sample', function(err) {
+//  if(err){
+//    couchbaseDetails.message = "Couchbase error: " + err;
+//  }
+//  bucket.get('aass_brewery-juleol', function(err, result){
+//   if(err){
+//         couchbaseDetails.message = "Couchbase error: " + err;
+//   }
+//    var doc = result.value;
+//    couchbaseDetails.message = "connected to Couchbase running on " + process.env.COUCHBASE_SERVER + "; opened bucket beer-sample, with document doc.name";
+//  });
+//});
+                                
     // Load the SDK for JavaScript
 var AWS = require('aws-sdk');
+  
     // Set the Region
 AWS.config.update({region: process.env.S3_REGION  });
 s3 = new AWS.S3({apiVersion: '2006-03-01'});
@@ -106,7 +123,7 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails, s3Info: s3Details });
+      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails, s3Info: s3Details, couchbaseInfo: couchbaseDetails });
     });
   } else {
     res.render('index.html', { pageCountMessage : null});

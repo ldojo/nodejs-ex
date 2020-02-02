@@ -301,7 +301,11 @@ $ git push</pre>
                           <tr><td>Status:</td><td><%= s3Info.message %></td></tr>
                       </table>
                     </div>
-
+                    <div class="code"><h3>Couchbase  Info:</h3>
+                      <table style='margin-left: 20px'>
+                          <tr><td>Status:</td><td><%= couchbaseInfo.message %></td></tr>
+                      </table>
+                    </div>
                 <% } else { %>
                    <span class="code" id="count-value">No database configured</span>
                    </p>
