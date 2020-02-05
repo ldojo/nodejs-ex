@@ -49,6 +49,10 @@ if (mongoURL == null) {
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
   }
 }
+
+const apiMetrics = require('prometheus-api-metrics');
+app.use(apiMetrics());
+
 var db = null,
     dbDetails = new Object(),
     s3Details = new Object(),
@@ -68,10 +72,10 @@ var db = null,
 //    couchbaseDetails.message = "connected to Couchbase running on " + process.env.COUCHBASE_SERVER + "; opened bucket beer-sample, with document doc.name";
 //  });
 //});
-                                
+
     // Load the SDK for JavaScript
 var AWS = require('aws-sdk');
-  
+
     // Set the Region
 AWS.config.update({region: process.env.S3_REGION  });
 s3 = new AWS.S3({apiVersion: '2006-03-01'});
