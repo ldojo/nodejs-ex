@@ -13,7 +13,11 @@
     "morgan": "^1.7.0",
     "object-assign":"4.1.0",
     "aws-sdk": "latest",
-    "couchbase": "2.0.0",
+    "body-parser": "~1.15.2",
+    "cors": "~2.8.1",
+    "couchbase": "~2.3.3",
+    "express-bearer-token": "~2.1.0",
+    "jsonwebtoken": "~7.1.9",
     "prom-client": "11.5.3",
     "prometheus-api-metrics": "2.2.3"
   },

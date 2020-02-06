@@ -57,7 +57,7 @@ var db = null,
     dbDetails = new Object(),
     s3Details = new Object(),
     couchbaseDetails = new Object();
-try{
+//try{
 var couchbase = require("couchbase");
 var cluster = new couchbase.Cluster(process.env.COUCHBASE_SERVER);
 var bucket = cluster.openBucket('beer-sample', function(err) {
@@ -72,9 +72,9 @@ var bucket = cluster.openBucket('beer-sample', function(err) {
     couchbaseDetails.message = "connected to Couchbase running on " + process.env.COUCHBASE_SERVER + "; opened bucket beer-sample, with document doc.name";
   });
 });
-}catch (e){
-  console.log(e);
-}
+//}catch (e){
+//  console.log(e);
+//}
 
     // Load the SDK for JavaScript
 var AWS = require('aws-sdk');
