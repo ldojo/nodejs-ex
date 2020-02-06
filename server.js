@@ -58,20 +58,20 @@ var db = null,
     s3Details = new Object(),
     couchbaseDetails = new Object();
 
-//var couchbase = require("couchbase");
-//var cluster = new couchbase.Cluster(process.env.COUCHBASE_SERVER);
-//var bucket = cluster.openBucket('beer-sample', function(err) {
-//  if(err){
-//    couchbaseDetails.message = "Couchbase error: " + err;
-//  }
-//  bucket.get('aass_brewery-juleol', function(err, result){
-//   if(err){
-//         couchbaseDetails.message = "Couchbase error: " + err;
-//   }
-//    var doc = result.value;
-//    couchbaseDetails.message = "connected to Couchbase running on " + process.env.COUCHBASE_SERVER + "; opened bucket beer-sample, with document doc.name";
-//  });
-//});
+var couchbase = require("couchbase");
+var cluster = new couchbase.Cluster(process.env.COUCHBASE_SERVER);
+var bucket = cluster.openBucket('beer-sample', function(err) {
+  if(err){
+    couchbaseDetails.message = "Couchbase error: " + err;
+  }
+  bucket.get('aass_brewery-juleol', function(err, result){
+   if(err){
+         couchbaseDetails.message = "Couchbase error: " + err;
+   }
+    var doc = result.value;
+    couchbaseDetails.message = "connected to Couchbase running on " + process.env.COUCHBASE_SERVER + "; opened bucket beer-sample, with document doc.name";
+  });
+});
 
     // Load the SDK for JavaScript
 var AWS = require('aws-sdk');
